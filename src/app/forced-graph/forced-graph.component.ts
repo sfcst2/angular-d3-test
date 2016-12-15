@@ -1,7 +1,7 @@
 import { Component, NgModule, OnInit, ElementRef, AfterViewChecked, AfterViewInit } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { NG2D3Module } from 'ng2d3';
-import d3 from '../../../node_modules/ng2d3/src/d3';
+//import d3 from '../../../node_modules/ng2d3/src/d3';
 import { data, links } from '../fd-data.ts';
 
 @Component({
