@@ -1,19 +1,22 @@
 import { Component, NgModule, OnInit, ElementRef, AfterViewChecked, AfterViewInit } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { NG2D3Module } from 'ng2d3';
-//import d3 from '../../../node_modules/ng2d3/src/d3';
-import { data, links } from '../fd-data.ts';
+//import { data, links } from '../fd-data.ts';
+import {GraphService} from '../graph.service';
+import {GraphNodeModel} from '../models/graphnode.model';
+import {Observable} from 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-forced-graph',
   templateUrl: './forced-graph.component.html',
   styleUrls: ['./forced-graph.component.css']
 })
-export class ForcedGraphComponent implements AfterViewInit {
+export class ForcedGraphComponent implements AfterViewInit,OnInit {
 
-  data: any[] = [];
+  data: GraphNodeModel[] = [];
   links: any[] = [];
-  element: ElementRef;  
+  element: ElementRef;    
 
   view: any[] = [700, 400];
 
@@ -24,10 +27,29 @@ export class ForcedGraphComponent implements AfterViewInit {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
-  constructor(myElement: ElementRef) {
-    Object.assign(this, { data, links })
+  ngOnInit(){
+    console.log("Making call in ngOninit");
+    // Make the inital call to get the nodes. Since we pass in null, null,
+    // this means we are getting the root node with the deafult depth (which
+    // is currently 3.
+    let graphNodes = this.graphService.getNodes(null,null).subscribe(
+      nodes => {      
+         console.log("!!!!!!!!!!!!!! in nodes");
+         this.data = nodes;
+       },
+       error =>{
+         console.log(error);
+       },       
+       () =>{
+         console.log("Completed!");
+       }       
+    );
+  }
+
+  constructor(myElement: ElementRef, private graphService: GraphService) {
+    //Object.assign(this, { data, links })    
     console.log("In constructor");
-    this.element = myElement;
+    this.element = myElement;       
   }
 
   ngAfterViewInit(){

@@ -6,6 +6,8 @@ import { NG2D3Module } from 'ng2d3';
 
 import { AppComponent } from './app.component';
 import { ForcedGraphComponent } from './forced-graph/forced-graph.component';
+import {GraphService} from './graph.service';
+import {GraphServiceConfiguration} from './graph.service.configuration';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,10 @@ import { ForcedGraphComponent } from './forced-graph/forced-graph.component';
     HttpModule, 
     NG2D3Module
   ],
-  providers: [],
+  providers: [
+    GraphService,
+    GraphServiceConfiguration
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
