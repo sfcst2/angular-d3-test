@@ -1,0 +1,35 @@
+{
+    "graphservice":
+        {
+            "nodes":[
+                {
+                    "name": "America",
+                    "value": "America",
+                    "id": 1
+                },
+                {
+                    "name": "Italy",
+                    "value": "Italy",
+                    "id": 2
+                },
+                {
+                    "name": "France",
+                    "value": "France",
+                    "id": 2
+                }
+            ],
+            "links":[
+                {
+                    "target": "America",
+                    "source": "Italy",
+                    "id": 1
+                },
+                {
+                    "target": "America",
+                    "source": "France",
+                    "id": 2
+                }                
+            ]
+        }
+   
+}
