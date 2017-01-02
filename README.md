@@ -32,4 +32,8 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 =======
 # angular-d3-test
+
+## Setup a development test json server
+https://github.com/typicode/json-server
+
 >>>>>>> 822b204d81a4271425cd702156b4f8b70cd8489a
